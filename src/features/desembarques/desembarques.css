@@ -81,9 +81,17 @@
 /* ── Tabla ── */
 .tabla-desembarques {
   width: 100%;
+  table-layout: fixed;
   border-collapse: collapse;
   font-size: 0.875rem;
 }
+
+.tabla-desembarques th:nth-child(1) { width: 16%; }
+.tabla-desembarques th:nth-child(2) { width: 17%; }
+.tabla-desembarques th:nth-child(3) { width: 16%; }
+.tabla-desembarques th:nth-child(4) { width: 14%; }
+.tabla-desembarques th:nth-child(5) { width: 19%; }
+.tabla-desembarques th:nth-child(6) { width: 18%; }
 
 .tabla-desembarques thead {
   background-color: var(--azul-marino);
@@ -100,7 +108,7 @@
 }
 
 .tabla-desembarques td {
-  padding: 0.75rem 1rem;
+  padding: 0.45rem 1rem;
   border-bottom: 1px solid var(--borde);
 }
 
@@ -120,9 +128,11 @@
   background-color: #fff5cc !important;
 }
 
-.col-kilos { text-align: right; font-variant-numeric: tabular-nums; }
+.col-kilos { text-align: center; font-variant-numeric: tabular-nums; }
 .col-centro { text-align: center; }
 
+.tabla-desembarques th.col-kilos  { text-align: center; }
+.tabla-desembarques th.col-centro { text-align: center; }
 
 /* ── Badges de estado ── */
 .badge {
