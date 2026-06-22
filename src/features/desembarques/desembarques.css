@@ -123,6 +123,8 @@
 .col-kilos { text-align: right; font-variant-numeric: tabular-nums; }
 .col-centro { text-align: center; }
 
+.tabla-desembarques th.col-kilos  { text-align: right; }
+.tabla-desembarques th.col-centro { text-align: center; }
 
 /* ── Badges de estado ── */
 .badge {
