@@ -6,8 +6,8 @@ function FilaDesembarque({ lote, esPrioritario, onTogglePrioritario }) {
     <tr className={esPrioritario ? 'fila--prioritaria' : ''}>
       <td>{especie}</td>
       <td>{embarcacion}</td>
-      <td>{fecha}</td>
-      <td className="col-kilos">{Number(kilos).toLocaleString('es-CL')} kg</td>
+      <td className="col-centro">{fecha}</td>
+      <td className="col-kilos">{Number(kilos).toLocaleString('es-CL')}</td>
       <td className="col-centro">
         <span className={`badge badge--${estado}`}>{estado}</span>
       </td>

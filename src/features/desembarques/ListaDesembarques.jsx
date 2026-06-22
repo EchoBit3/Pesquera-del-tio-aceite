@@ -136,8 +136,8 @@ function ListaDesembarques() {
               <tr>
                 <th scope="col">Especie</th>
                 <th scope="col">Embarcacion</th>
-                <th scope="col">Fecha</th>
-                <th scope="col" className="col-kilos">Kilos</th>
+                <th scope="col" className="col-centro">Fecha</th>
+                <th scope="col" className="col-kilos">Kilos (kg)</th>
                 <th scope="col" className="col-centro">Estado</th>
                 <th scope="col" className="col-centro">Prioridad</th>
               </tr>
