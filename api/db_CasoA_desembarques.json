@@ -1,0 +1,100 @@
+{
+  "desembarques": [
+    {
+      "id": 1,
+      "especie": "Anchoveta",
+      "embarcacion": "Don Rodrigo III",
+      "fecha": "2026-06-15",
+      "kilos": 18450,
+      "estado": "procesado"
+    },
+    {
+      "id": 2,
+      "especie": "Jurel",
+      "embarcacion": "Bahia Talcahuano",
+      "fecha": "2026-06-15",
+      "kilos": 9200,
+      "estado": "procesado"
+    },
+    {
+      "id": 3,
+      "especie": "Sardina",
+      "embarcacion": "Bio Bio I",
+      "fecha": "2026-06-16",
+      "kilos": 6750,
+      "estado": "rechazado"
+    },
+    {
+      "id": 4,
+      "especie": "Merluza",
+      "embarcacion": "San Pedro IV",
+      "fecha": "2026-06-16",
+      "kilos": 3120,
+      "estado": "pendiente"
+    },
+    {
+      "id": 5,
+      "especie": "Anchoveta",
+      "embarcacion": "Golfo Arauco",
+      "fecha": "2026-06-17",
+      "kilos": 22800,
+      "estado": "procesado"
+    },
+    {
+      "id": 6,
+      "especie": "Caballa",
+      "embarcacion": "Maria Cristina",
+      "fecha": "2026-06-17",
+      "kilos": 5430,
+      "estado": "pendiente"
+    },
+    {
+      "id": 7,
+      "especie": "Jurel",
+      "embarcacion": "Nueva Esperanza",
+      "fecha": "2026-06-18",
+      "kilos": 11900,
+      "estado": "procesado"
+    },
+    {
+      "id": 8,
+      "especie": "Sardina",
+      "embarcacion": "Punta Coronel II",
+      "fecha": "2026-06-18",
+      "kilos": 8300,
+      "estado": "pendiente"
+    },
+    {
+      "id": 9,
+      "especie": "Merluza",
+      "embarcacion": "Santa Lucia",
+      "fecha": "2026-06-19",
+      "kilos": 2875,
+      "estado": "rechazado"
+    },
+    {
+      "id": 10,
+      "especie": "Anchoveta",
+      "embarcacion": "Caleta Sur",
+      "fecha": "2026-06-20",
+      "kilos": 31600,
+      "estado": "procesado"
+    },
+    {
+      "id": 11,
+      "especie": "Caballa",
+      "embarcacion": "Don Rodrigo III",
+      "fecha": "2026-06-21",
+      "kilos": 4980,
+      "estado": "pendiente"
+    },
+    {
+      "id": 12,
+      "especie": "Jurel",
+      "embarcacion": "Bio Bio I",
+      "fecha": "2026-06-22",
+      "kilos": 14200,
+      "estado": "procesado"
+    }
+  ]
+}
