@@ -1,25 +1,28 @@
+/* ═══════════════════════════════════════════════
+   LAYOUT GLOBAL — estructura raíz de la aplicación
+   ═══════════════════════════════════════════════ */
 .app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* ── Navbar ── */
+/* ── Navegación principal ── */
 .navbar {
-  background-color: var(--azul-marino);
+  background-color: var(--color-primario);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.85rem 2.5rem;
-  border-bottom: 2px solid var(--azul-acento);
+  padding: 0.85rem var(--espacio-xl);
+  border-bottom: 2px solid var(--color-acento);
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
 .navbar__logo {
-  color: #ffffff;
-  font-size: 1rem;
+  color: var(--color-texto-inverso);
+  font-size: var(--fuente-base);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -27,7 +30,7 @@
 
 .navbar__links {
   display: flex;
-  gap: 2rem;
+  gap: var(--espacio-xl);
   list-style: none;
 }
 
@@ -39,29 +42,38 @@
   transition: color 0.2s;
 }
 
-.navbar__links a:hover {
-  color: #ffffff;
+.navbar__links a:hover,
+.navbar__links a[aria-current="page"] {
+  color: var(--color-texto-inverso);
 }
 
-/* ── Hero ── */
+/* ── Hero — sección de presentación con foto de fondo ── */
 .hero {
-  background: linear-gradient(rgba(0,10,30,0.15) 0%, rgba(0,10,30,0.7) 50%, rgba(0,10,30,0.75) 100%);
-  color: #ffffff;
-  padding: 4.5rem 2rem 5.5rem;
+  /* El gradiente actúa como overlay sobre la foto del ::before */
+  background: linear-gradient(
+    rgba(0, 10, 30, 0.15) 0%,
+    rgba(0, 10, 30, 0.70) 50%,
+    rgba(0, 10, 30, 0.75) 100%
+  );
+  color: var(--color-texto-inverso);
+  padding: 4.5rem var(--espacio-xl) 5.5rem;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 
+/* Foto de fondo con filtro de brillo para compensar la oscuridad original */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('https://images.unsplash.com/photo-1690067252528-6be862d0f059?q=80&w=1920&auto=format&fit=crop') center 75%/cover no-repeat;
+  background: url('https://images.unsplash.com/photo-1690067252528-6be862d0f059?q=80&w=1920&auto=format&fit=crop')
+    center 75% / cover no-repeat;
   filter: brightness(2.2) saturate(1.3) contrast(0.9);
   z-index: 0;
 }
 
+/* Ola decorativa que separa el hero del contenido principal */
 .hero::after {
   content: '';
   position: absolute;
@@ -69,16 +81,16 @@
   left: 0;
   right: 0;
   height: 70px;
-  background: var(--gris-fondo);
+  background: var(--color-fondo);
   clip-path: ellipse(60% 100% at 50% 100%);
 }
 
 .hero__contenido {
   position: relative;
   z-index: 1;
-  background: rgba(0,10,30,0.35);
-  border-radius: 12px;
-  padding: 2rem 3rem;
+  background: rgba(0, 10, 30, 0.35);
+  border-radius: var(--radio-lg);
+  padding: var(--espacio-xl) 3rem;
   backdrop-filter: blur(2px);
   display: inline-block;
 }
@@ -87,9 +99,9 @@
   display: inline-block;
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 20px;
+  border-radius: var(--radio-pill);
   padding: 0.3rem 1.1rem;
-  font-size: 0.75rem;
+  font-size: var(--fuente-xs);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 1.25rem;
@@ -101,24 +113,31 @@
   font-weight: 800;
   letter-spacing: 0.02em;
   line-height: 1.15;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
 .hero__subtitulo {
-  margin-top: 0.9rem;
-  font-size: 1.05rem;
-  color: #ffffff;
+  margin: 0.9rem auto 0;
+  font-size: var(--fuente-lg);
+  color: var(--color-texto-inverso);
   max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.7);
 }
 
-/* ── Main ── */
+/* ── Contenido principal ── */
 .app-main {
   flex: 1;
-  padding: 2.5rem 2rem;
+  padding: var(--espacio-2xl) var(--espacio-xl);
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+}
+
+/* ── Pie de página ── */
+.app-footer {
+  background-color: var(--color-primario);
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  padding: var(--espacio-md) var(--espacio-xl);
+  font-size: var(--fuente-sm);
 }

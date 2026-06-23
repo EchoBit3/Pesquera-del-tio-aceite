@@ -1,24 +1,91 @@
+/* ═══════════════════════════════════════════════
+   TOKENS DE DISEÑO — fuente única de verdad
+   Cualquier cambio de marca se hace aquí.
+   ═══════════════════════════════════════════════ */
 :root {
-  --azul-marino:  #0d2d3d;
-  --azul-acento:  #00b4d8;
-  --gris-fondo:   #f0f4f8;
-  --blanco:       #ffffff;
-  --borde:        #dde3ea;
-  --texto:        #1e2d3d;
-  --texto-suave:  #64748b;
-  --sombra:       0 2px 8px rgba(0, 0, 0, 0.08);
+  /* Colores principales */
+  --color-primario:      #0d2d3d;
+  --color-acento:        #00b4d8;
+  --color-fondo:         #f0f4f8;
+  --color-superficie:    #ffffff;
+  --color-borde:         #dde3ea;
+  --color-hover-fila:    #f8fafc;
+
+  /* Colores de texto */
+  --color-texto:         #1e2d3d;
+  --color-texto-suave:   #64748b;
+  --color-texto-inverso: #ffffff;
+
+  /* Colores de estado */
+  --color-procesado-bg:  #d4edda;
+  --color-procesado-fg:  #155724;
+  --color-pendiente-bg:  #fff3cd;
+  --color-pendiente-fg:  #856404;
+  --color-rechazado-bg:  #f8d7da;
+  --color-rechazado-fg:  #721c24;
+
+  /* Colores de prioridad */
+  --color-prioridad:     #f5a623;
+  --color-prioridad-hover: #e09510;
+  --color-prioritaria-bg:  #fffbea;
+  --color-prioritaria-hover: #fff5cc;
+
+  /* Espaciado */
+  --espacio-xs:  0.25rem;
+  --espacio-sm:  0.5rem;
+  --espacio-md:  1rem;
+  --espacio-lg:  1.5rem;
+  --espacio-xl:  2rem;
+  --espacio-2xl: 2.5rem;
+
+  /* Radios de borde */
+  --radio-sm:   6px;
+  --radio-md:   8px;
+  --radio-lg:   12px;
+  --radio-pill: 20px;
+
+  /* Tipografía */
+  --fuente-xs:   0.75rem;
+  --fuente-sm:   0.8rem;
+  --fuente-md:   0.875rem;
+  --fuente-base: 1rem;
+  --fuente-lg:   1.05rem;
+
+  /* Sombras */
+  --sombra: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  /* Alias de compatibilidad — mantener para no romper referencias antiguas */
+  --azul-marino:  var(--color-primario);
+  --azul-acento:  var(--color-acento);
+  --gris-fondo:   var(--color-fondo);
+  --blanco:       var(--color-superficie);
+  --borde:        var(--color-borde);
+  --texto:        var(--color-texto);
+  --texto-suave:  var(--color-texto-suave);
 }
 
+/* ── Reset mínimo ── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* ── Base del documento ── */
 body {
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  background-color: var(--gris-fondo);
-  color: var(--texto);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
   line-height: 1.6;
   min-height: 100vh;
+}
+
+/* ── Accesibilidad: contenido solo para lectores de pantalla ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }

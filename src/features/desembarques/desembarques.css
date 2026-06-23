@@ -1,64 +1,72 @@
-/* ── Tarjetas de resumen ── */
+/* ═══════════════════════════════════════════════
+   MÓDULO: DESEMBARQUES
+   Estilos para el panel de control de lotes.
+   ═══════════════════════════════════════════════ */
+
+/* ── Tarjetas de resumen estadístico ── */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: var(--espacio-md);
+  margin-bottom: var(--espacio-lg);
 }
 
 .stat-card {
-  background: var(--blanco);
-  border-radius: 8px;
+  background: var(--color-superficie);
+  border-radius: var(--radio-md);
   box-shadow: var(--sombra);
-  padding: 1.25rem 1.5rem;
+  padding: 1.25rem var(--espacio-lg);
+  border-top: 3px solid var(--color-acento);
+}
+
+.stat-card dl {
   display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  border-top: 3px solid var(--azul-acento);
+  flex-direction: column-reverse;
+  gap: var(--espacio-xs);
 }
 
 .stat-card__numero {
   font-size: 2rem;
   font-weight: 800;
-  color: var(--azul-marino);
+  color: var(--color-primario);
   line-height: 1;
 }
 
 .stat-card__etiqueta {
-  font-size: 0.78rem;
+  font-size: var(--fuente-xs);
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  color: var(--texto-suave);
+  color: var(--color-texto-suave);
 }
 
-/* ── Panel principal ── */
+/* ── Panel de tabla ── */
 .panel {
-  background: var(--blanco);
-  border-radius: 8px;
+  background: var(--color-superficie);
+  border-radius: var(--radio-md);
   box-shadow: var(--sombra);
   overflow: hidden;
 }
 
 .panel__titulo {
-  font-size: 1.05rem;
+  font-size: var(--fuente-lg);
   font-weight: 600;
-  color: var(--azul-marino);
-  padding: 1.1rem 1.5rem;
-  border-bottom: 1px solid var(--borde);
+  color: var(--color-primario);
+  padding: 1.1rem var(--espacio-lg);
+  border-bottom: 1px solid var(--color-borde);
 }
 
-/* ── Filtro ── */
+/* ── Filtro de búsqueda ── */
 .filtro {
-  padding: 1rem 1.5rem;
-  border-bottom: 1px solid var(--borde);
+  padding: var(--espacio-md) var(--espacio-lg);
+  border-bottom: 1px solid var(--color-borde);
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
 .filtro__label {
-  font-size: 0.875rem;
-  color: var(--texto-suave);
+  font-size: var(--fuente-md);
+  color: var(--color-texto-suave);
   white-space: nowrap;
 }
 
@@ -66,50 +74,53 @@
   flex: 1;
   max-width: 320px;
   padding: 0.45rem 0.75rem;
-  border: 1px solid var(--borde);
-  border-radius: 6px;
-  font-size: 0.875rem;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-sm);
+  font-size: var(--fuente-md);
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .filtro__input:focus {
-  border-color: var(--azul-acento);
-  box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.12);
+  border-color: var(--color-acento);
+  box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.15);
 }
 
-/* ── Tabla ── */
+/* ── Tabla de desembarques ── */
 .tabla-desembarques {
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
-  font-size: 0.875rem;
+  font-size: var(--fuente-md);
 }
 
-.tabla-desembarques th:nth-child(1) { width: 16%; }
-.tabla-desembarques th:nth-child(2) { width: 17%; }
-.tabla-desembarques th:nth-child(3) { width: 16%; }
-.tabla-desembarques th:nth-child(4) { width: 14%; }
-.tabla-desembarques th:nth-child(5) { width: 19%; }
-.tabla-desembarques th:nth-child(6) { width: 18%; }
+/* Anchos de columna definidos en <colgroup> — orden independiente */
+.tabla-desembarques .col-especie     { width: 16%; }
+.tabla-desembarques .col-embarcacion { width: 17%; }
+.tabla-desembarques .col-fecha       { width: 16%; }
+.tabla-desembarques .col-kilos       { width: 14%; text-align: center; font-variant-numeric: tabular-nums; }
+.tabla-desembarques .col-estado      { width: 19%; }
+.tabla-desembarques .col-prioridad   { width: 18%; }
+/* Especificidad 0-2-0 supera a .tabla-desembarques th (0-1-1) */
+.tabla-desembarques .col-centro      { text-align: center; }
 
 .tabla-desembarques thead {
-  background-color: var(--azul-marino);
-  color: var(--blanco);
+  background-color: var(--color-primario);
+  color: var(--color-texto-inverso);
 }
 
 .tabla-desembarques th {
-  padding: 0.75rem 1rem;
+  padding: 0.75rem var(--espacio-md);
   text-align: left;
   font-weight: 600;
-  font-size: 0.78rem;
+  font-size: var(--fuente-xs);
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
 
 .tabla-desembarques td {
-  padding: 0.45rem 1rem;
-  border-bottom: 1px solid var(--borde);
+  padding: 0.45rem var(--espacio-md);
+  border-bottom: 1px solid var(--color-borde);
 }
 
 .tabla-desembarques tbody tr:last-child td {
@@ -117,77 +128,75 @@
 }
 
 .tabla-desembarques tbody tr:hover {
-  background-color: #f8fafc;
+  background-color: var(--color-hover-fila);
 }
 
-.fila--prioritaria {
-  background-color: #fffbea !important;
+/* Filas prioritarias — especificidad suficiente para superar :hover sin !important */
+.tabla-desembarques tbody tr.fila--prioritaria {
+  background-color: var(--color-prioritaria-bg);
 }
 
-.fila--prioritaria:hover {
-  background-color: #fff5cc !important;
+.tabla-desembarques tbody tr.fila--prioritaria:hover {
+  background-color: var(--color-prioritaria-hover);
 }
-
-.col-kilos { text-align: center; font-variant-numeric: tabular-nums; }
-.col-centro { text-align: center; }
-
-.tabla-desembarques th.col-kilos  { text-align: center; }
-.tabla-desembarques th.col-centro { text-align: center; }
 
 /* ── Badges de estado ── */
 .badge {
   display: inline-block;
   padding: 3px 10px;
-  border-radius: 20px;
-  font-size: 0.75rem;
+  border-radius: var(--radio-pill);
+  font-size: var(--fuente-xs);
   font-weight: 600;
   text-transform: capitalize;
 }
 
-.badge--procesado { background: #d4edda; color: #155724; }
-.badge--pendiente { background: #fff3cd; color: #856404; }
-.badge--rechazado { background: #f8d7da; color: #721c24; }
+.badge--procesado { background: var(--color-procesado-bg); color: var(--color-procesado-fg); }
+.badge--pendiente { background: var(--color-pendiente-bg); color: var(--color-pendiente-fg); }
+.badge--rechazado { background: var(--color-rechazado-bg); color: var(--color-rechazado-fg); }
 
-/* ── Botón prioridad ── */
+/* ── Botón de prioridad ── */
 .btn-prioridad {
-  border: 1px solid var(--borde);
-  border-radius: 6px;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-sm);
   padding: 4px 10px;
-  font-size: 0.75rem;
+  font-size: var(--fuente-xs);
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: border-color 0.15s, color 0.15s, background-color 0.15s;
   background: transparent;
-  color: var(--texto-suave);
+  color: var(--color-texto-suave);
 }
 
-.btn-prioridad:hover { border-color: #f5a623; color: #f5a623; }
+.btn-prioridad:hover {
+  border-color: var(--color-prioridad);
+  color: var(--color-prioridad);
+}
 
 .btn-prioridad--activo {
-  background-color: #f5a623;
-  border-color: #f5a623;
-  color: #ffffff;
+  background-color: var(--color-prioridad);
+  border-color: var(--color-prioridad);
+  color: var(--color-texto-inverso);
 }
 
 .btn-prioridad--activo:hover {
-  background-color: #e09510;
-  border-color: #e09510;
+  background-color: var(--color-prioridad-hover);
+  border-color: var(--color-prioridad-hover);
 }
 
-/* ── Estados de carga / error / vacío ── */
+/* ── Estados de la tabla ── */
 .estado-carga,
 .estado-vacio {
-  padding: 3rem 1.5rem;
+  padding: 3rem var(--espacio-lg);
   text-align: center;
-  color: var(--texto-suave);
+  color: var(--color-texto-suave);
   font-size: 0.95rem;
 }
 
 .estado-error {
-  padding: 1.5rem;
-  margin: 1rem 1.5rem;
-  background: #f8d7da;
-  color: #721c24;
-  border-radius: 6px;
+  padding: var(--espacio-lg);
+  margin: var(--espacio-md) var(--espacio-lg);
+  background: var(--color-rechazado-bg);
+  color: var(--color-rechazado-fg);
+  border-radius: var(--radio-sm);
   font-size: 0.9rem;
 }
