@@ -95,43 +95,59 @@ function ListaDesembarques() {
 
   return (
     <>
-      <div className="stats-grid">
-        <div className="stat-card">
-          <span className="stat-card__numero">{desembarquesFiltrados.length}</span>
-          <span className="stat-card__etiqueta">Total de Lotes</span>
-        </div>
-        <div className="stat-card">
-          <span className="stat-card__numero">
-            {totalKilos.toLocaleString('es-CL')}
-          </span>
-          <span className="stat-card__etiqueta">Kilos Totales</span>
-        </div>
-        <div className="stat-card">
-          <span className="stat-card__numero">{totalPendientes}</span>
-          <span className="stat-card__etiqueta">Lotes Pendientes</span>
-        </div>
-      </div>
+      <section className="stats-grid" aria-label="Resumen estadístico">
+        <article className="stat-card">
+          <dl>
+            <dt className="stat-card__etiqueta">Total de Lotes</dt>
+            <dd className="stat-card__numero">{desembarquesFiltrados.length}</dd>
+          </dl>
+        </article>
+        <article className="stat-card">
+          <dl>
+            <dd className="stat-card__numero">{totalKilos.toLocaleString('es-CL')}</dd>
+            <dt className="stat-card__etiqueta">Kilos Totales</dt>
+          </dl>
+        </article>
+        <article className="stat-card">
+          <dl>
+            <dd className="stat-card__numero">{totalPendientes}</dd>
+            <dt className="stat-card__etiqueta">Lotes Pendientes</dt>
+          </dl>
+        </article>
+      </section>
 
-      <div className="panel">
-        <h2 className="panel__titulo">Registro de Desembarques</h2>
-        <div className="filtro">
+      <section className="panel" aria-labelledby="titulo-registro">
+        <h2 className="panel__titulo" id="titulo-registro">Registro de Desembarques</h2>
+        <div className="filtro" role="search">
           <label className="filtro__label" htmlFor="filtro-desembarques">
             Filtrar por especie o estado:
           </label>
           <input
             id="filtro-desembarques"
             className="filtro__input"
-            type="text"
+            type="search"
             value={filtro}
             onChange={(e) => setFiltro(e.target.value)}
             placeholder="Ej: anchoveta, pendiente..."
             maxLength={50}
+            aria-label="Filtrar desembarques por especie o estado"
           />
         </div>
         {desembarquesFiltrados.length === 0 ? (
-          <p className="estado-vacio">No se encontraron lotes con ese criterio.</p>
+          <p className="estado-vacio" role="status">No se encontraron lotes con ese criterio.</p>
         ) : (
           <table className="tabla-desembarques">
+            <colgroup>
+              <col className="col-especie" />
+              <col className="col-embarcacion" />
+              <col className="col-fecha" />
+              <col className="col-kilos" />
+              <col className="col-estado" />
+              <col className="col-prioridad" />
+            </colgroup>
+            <caption className="sr-only">
+              Registro de lotes de desembarque — {desembarquesFiltrados.length} lotes, {totalKilos.toLocaleString('es-CL')} kg totales
+            </caption>
             <thead>
               <tr>
                 <th scope="col">Especie</th>
@@ -154,7 +170,7 @@ function ListaDesembarques() {
             </tbody>
           </table>
         )}
-      </div>
+      </section>
     </>
   )
 }
