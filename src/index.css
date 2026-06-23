@@ -1,0 +1,24 @@
+:root {
+  --azul-marino:  #0d2137;
+  --azul-acento:  #0077b6;
+  --gris-fondo:   #f0f4f8;
+  --blanco:       #ffffff;
+  --borde:        #dde3ea;
+  --texto:        #1e2d3d;
+  --texto-suave:  #64748b;
+  --sombra:       0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--gris-fondo);
+  color: var(--texto);
+  line-height: 1.6;
+  min-height: 100vh;
+}
